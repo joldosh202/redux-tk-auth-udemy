@@ -1,30 +1,44 @@
+import { Button } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 const Public = () => {
   const content = (
     <section className="public">
       <header>
-        <h1>Welcome to Repair Store!</h1>
+        <h1>Welcome to Udemy</h1>
       </header>
       <main>
         <p>
-          Located in Beautiful Downtown Foo City, Repair Store provides a
-          trained staff ready to meet your repair needs.
+          Расширяйте горизонты с помощью глобального опыта обучения. Выполните
+          вход, чтобы воспользоваться предложением. Акция заканчивается 4 мая.
         </p>
         <p>&nbsp;</p>
-        <address>
-          Repair Store
-          <br />
-          555 Foo Drive
-          <br />
-          Foo City, CA 12345
-          <br />
-          <a href="tel:+15555555555">(555) 555-5555</a>
-        </address>
       </main>
-      <footer>
-        <Link to="/login">Employee Login</Link>
-      </footer>
+      <div className="auth">
+        <div>
+          <Button sx={{ m: 2 }} variant="outlined">
+            <Link style={{ color: "black" }} to="/login">
+              Войти{" "}
+            </Link>
+          </Button>
+          <Button
+            variant="contained"
+            sx={{ bgcolor: "black", "&:hover": { backgroundColor: "black" } }}
+          >
+            <Link style={{ color: "white" }} to="/register">
+              Регистрация{" "}
+            </Link>
+          </Button>
+        </div>
+        <Button
+          variant="contained"
+          sx={{ bgcolor: "pink", "&:hover": { backgroundColor: "pink" } }}
+        >
+          <Link style={{ color: "white" }} to="/mentor-reg">
+            Стать ментором
+          </Link>
+        </Button>
+      </div>
     </section>
   );
   return content;

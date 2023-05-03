@@ -2,8 +2,9 @@ import React from "react";
 import { useRef, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "./authSlice";
-import { useLoginMutation, useRegisterMutation } from "./authApiSlice";
+import { useRegisterMutation } from "./authApiSlice";
 import { useNavigate } from "react-router-dom";
+import { Button, TextField } from "@mui/material";
 
 const Register = () => {
   const userRef = useRef();
@@ -67,11 +68,12 @@ const Register = () => {
         {errMsg}
       </p>
 
-      <h2>Employee register</h2>
+      <h2>Register</h2>
 
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label>
-        <input
+      <form className="auth-form" onSubmit={handleSubmit}>
+        <TextField
+          label="Имя"
+          variant="outlined"
           type="text"
           id="username"
           ref={userRef}
@@ -80,8 +82,9 @@ const Register = () => {
           autoComplete="off"
           required
         />
-        <label htmlFor="lastname">lastname:</label>
-        <input
+        <TextField
+          label="Фамилия"
+          variant="outlined"
           type="text"
           id="last"
           ref={userRef}
@@ -90,8 +93,9 @@ const Register = () => {
           autoComplete="off"
           required
         />
-        <label htmlFor="email">email:</label>
-        <input
+        <TextField
+          label="Почта"
+          variant="outlined"
           type="email"
           id="email"
           ref={userRef}
@@ -100,23 +104,35 @@ const Register = () => {
           autoComplete="off"
           required
         />
-        <label htmlFor="password">Password:</label>
-        <input
+        <TextField
+          label="Пароль"
+          variant="outlined"
           type="password"
           id="password"
           onChange={handlePwdInput}
           value={password}
           required
         />
-        <label htmlFor="password2">Password2:</label>
-        <input
+        <TextField
+          label="Повторите Пароль"
+          variant="outlined"
           type="password"
           id="password2"
           onChange={handlePwd2Input}
           value={password2}
           required
         />
-        <button onClick={handleSubmit}>Sign Up</button>
+        <Button
+          sx={{
+            bgcolor: "#a435f0",
+            color: "white",
+            "&:hover": { backgroundColor: "#a435f0" },
+          }}
+          onClick={handleSubmit}
+        >
+          Sign Up
+        </Button>
+        {/* <button onClick={handleSubmit}></button> */}
       </form>
     </section>
   );

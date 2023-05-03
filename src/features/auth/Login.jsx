@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { setCredentials } from "./authSlice";
 import { useLoginMutation } from "./authApiSlice";
 import { useNavigate } from "react-router-dom";
+import { Button, TextField } from "@mui/material";
 const Login = () => {
   const userRef = useRef();
   const errRef = useRef();
@@ -65,11 +66,12 @@ const Login = () => {
         {errMsg}
       </p>
 
-      <h1>Employee Login</h1>
+      <h1>Login</h1>
 
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">email:</label>
-        <input
+      <form className="auth-form" onSubmit={handleSubmit}>
+        <TextField
+          label="Почта"
+          variant="outlined"
           type="text"
           id="username"
           ref={userRef}
@@ -78,16 +80,26 @@ const Login = () => {
           autoComplete="off"
           required
         />
-
-        <label htmlFor="password">Password:</label>
-        <input
+        <TextField
+          label="Пароль"
+          variant="outlined"
           type="password"
           id="password"
           onChange={handlePwdInput}
           value={password}
           required
         />
-        <button onClick={handleSubmit}>Sign In</button>
+        <Button
+          sx={{
+            bgcolor: "#a435f0",
+            color: "white",
+            "&:hover": { backgroundColor: "#a435f0" },
+          }}
+          onClick={handleSubmit}
+        >
+          Sign In
+        </Button>
+        {/* <button onClick={handleSubmit}>Sign In</button> */}
       </form>
     </section>
   );

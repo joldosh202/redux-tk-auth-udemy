@@ -1,23 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { useLoginMutation, useRegisterMutation } from "./authApiSlice";
 
-const authSlice = createSlice({
-  name: "auth",
-  initialState: { user: null, token: null },
+const mentorAuthSlice = createSlice({
+  name: "mentorAuth",
+  initialState: { mentor: null, token: null },
   reducers: {
     setCredentials: (state, action) => {
-      const { user, accessToken } = action.payload;
-      state.user = user;
+      const { mentor, accessToken } = action.payload;
+      state.mentor = mentor;
       state.token = accessToken;
     },
     logOut: (state, action) => {
-      state.user = null;
+      state.mentor = null;
       state.token = null;
     },
   },
 });
 
-export const { setCredentials, logOut } = authSlice.actions;
+export const { setCredentials, logOut } = mentorAuthSlice.actions;
 
 export const login = (credentials) => async (dispatch) => {
   try {
@@ -37,7 +37,7 @@ export const register = (credentials) => async (dispatch) => {
   }
 };
 
-export default authSlice.reducer;
+export default mentorAuthSlice.reducer;
 
-export const selectCurrentUser = (state) => state.auth.user;
+export const selectCurrentMentor = (state) => state.auth.mentor;
 export const selectCurrentToken = (state) => state.auth.token;

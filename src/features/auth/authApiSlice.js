@@ -16,8 +16,16 @@ export const authApiSlice = apiSlice.injectEndpoints({
         body: { ...credentials },
       }),
     }),
+    mentorRegister: builder.mutation({
+      query: (credentials) => ({
+        url: "/account/register/mentor/",
+        method: "POST",
+        body: { ...credentials },
+      }),
+    }),
   }),
 });
 
 export const { useLoginMutation } = authApiSlice;
 export const { useRegisterMutation } = authApiSlice;
+export const { useMentorRegisterMutation } = authApiSlice;

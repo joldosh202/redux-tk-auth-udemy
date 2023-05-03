@@ -5,6 +5,7 @@ import Login from "./features/auth/Login";
 import Welcome from "./features/auth/Welcome";
 import RequireAuth from "./features/auth/RequireAuth";
 import Register from "./features/auth/Register";
+import MentorRegister from "./features/auth/MentorRegister";
 function App() {
   return (
     <Routes>
@@ -13,6 +14,8 @@ function App() {
         <Route index element={<Public />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route path="mentor-reg" element={<MentorRegister />} />
+
         {/* protected */}
         <Route element={<RequireAuth />}>
           <Route path="welcome" element={<Welcome />} />
